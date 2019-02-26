@@ -1,0 +1,15 @@
+{
+  "name": "gregslist-api",
+  "version": "1.0.0",
+  "description": "API for Gregslist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clair Rogers",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15"
+  }
+}
