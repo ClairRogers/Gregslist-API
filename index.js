@@ -1,3 +1,4 @@
+let cors = require('cors')
 let express = require('express')
 let bp = require('body-parser')
 let server = express()
@@ -9,6 +10,7 @@ require('./server-assets/db/gearhost-config')
 //middlewear
 server.use(bp.json())
 server.use(bp.urlencoded({ extended: true }))
+server.use(cors())
 
 //Routes
 let carRoutes = require('./server-assets/routes/car-routes')

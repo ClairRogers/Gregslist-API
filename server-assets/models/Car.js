@@ -6,7 +6,8 @@ let car = new Schema({
   model: { type: String, required: true },
   year: { type: Number, required: true, minlength: 4 },
   price: { type: Number, required: true },
-  description: { type: String, required: true, default: 'No description provided' }
+  description: { type: String, required: true, default: 'No description provided' },
+  imgUrl: { type: String, required: true, default: '//placehold.it/300x300' }
 })
 
 
