@@ -1,25 +1,25 @@
 const router = require('express').Router()
-let Car = require('../models/Car')
+let Job = require('../models/Job')
 
 //get all
 router.get('', (req, res, next) => {
-  Car.find({})
-    .then(cars => {
-      res.status(200).send(cars)
+  Job.find({})
+    .then(jobs => {
+      res.status(200).send(jobs)
     })
     .catch(err => {
       res.status(500).send({ Error: err })
     })
 })
 
-//get by id
+//get id
 router.get('/:id', (req, res, next) => {
-  Car.findById(req.params.id)
-    .then(car => {
-      if (car) {
-        return res.status(200).send(car)
+  Job.findById(req.params.id)
+    .then(job => {
+      if (job) {
+        return res.status(200).send(job)
       }
-      res.status(400).send('No car with that ID')
+      res.status(400).send('No job with that ID')
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -28,9 +28,9 @@ router.get('/:id', (req, res, next) => {
 
 //create
 router.post('', (req, res, next) => {
-  Car.create(req.body)
-    .then(car => {
-      res.status(201).send({ message: 'car created successfully', data: car })
+  Job.create(req.body)
+    .then(job => {
+      res.status(201).send({ message: 'Job created successfully', data: job })
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -39,9 +39,9 @@ router.post('', (req, res, next) => {
 
 //edit
 router.put('/:id', (req, res, next) => {
-  Car.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-    .then(car => {
-      res.status(200).send(car)
+  Job.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(job => {
+      res.status(200).send(job)
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -50,7 +50,7 @@ router.put('/:id', (req, res, next) => {
 
 //delete
 router.delete('/:id', (req, res, next) => {
-  Car.findOneAndDelete({ _id: req.params.id })
+  Job.findOneAndDelete({ _id: req.params.id })
     .then(oldData => {
       res.status(200).send('Successfully deleted')
     })
@@ -58,6 +58,5 @@ router.delete('/:id', (req, res, next) => {
       res.status(500).send({ Error: err })
     })
 })
-
 
 module.exports = router

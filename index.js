@@ -12,7 +12,11 @@ server.use(bp.urlencoded({ extended: true }))
 
 //Routes
 let carRoutes = require('./server-assets/routes/car-routes')
+let houseRoutes = require('./server-assets/routes/house-routes')
+let jobRoutes = require('./server-assets/routes/job-routes')
 server.use('/api/cars', carRoutes)
+server.use('/api/houses', houseRoutes)
+server.use('/api/jobs', jobRoutes)
 
 //Catchall
 server.use('*', (req, res, next) => {

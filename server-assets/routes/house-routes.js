@@ -1,25 +1,25 @@
 const router = require('express').Router()
-let Car = require('../models/Car')
+let House = require('../models/House')
 
 //get all
 router.get('', (req, res, next) => {
-  Car.find({})
-    .then(cars => {
-      res.status(200).send(cars)
+  House.find({})
+    .then(houses => {
+      res.status(200).send(houses)
     })
     .catch(err => {
       res.status(500).send({ Error: err })
     })
 })
 
-//get by id
+//get id
 router.get('/:id', (req, res, next) => {
-  Car.findById(req.params.id)
-    .then(car => {
-      if (car) {
-        return res.status(200).send(car)
+  House.findByID(req.params.id)
+    .then(house => {
+      if (house) {
+        return res.status(200).send(house)
       }
-      res.status(400).send('No car with that ID')
+      res.status(400).send('No house with that ID')
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -28,9 +28,9 @@ router.get('/:id', (req, res, next) => {
 
 //create
 router.post('', (req, res, next) => {
-  Car.create(req.body)
-    .then(car => {
-      res.status(201).send({ message: 'car created successfully', data: car })
+  House.create(req.body)
+    .then(house => {
+      res.status(201).send({ message: 'House successfully created', data: house })
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -39,9 +39,9 @@ router.post('', (req, res, next) => {
 
 //edit
 router.put('/:id', (req, res, next) => {
-  Car.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-    .then(car => {
-      res.status(200).send(car)
+  House.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(house => {
+      res.status(200).send(house)
     })
     .catch(err => {
       res.status(500).send({ Error: err })
@@ -50,7 +50,7 @@ router.put('/:id', (req, res, next) => {
 
 //delete
 router.delete('/:id', (req, res, next) => {
-  Car.findOneAndDelete({ _id: req.params.id })
+  House.findOneAndDelete({ _id: req.params.id })
     .then(oldData => {
       res.status(200).send('Successfully deleted')
     })
