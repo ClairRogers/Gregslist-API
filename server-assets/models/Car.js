@@ -6,7 +6,7 @@ let car = new Schema({
   model: { type: String, required: true },
   year: { type: Number, required: true, minlength: 4 },
   price: { type: Number, required: true },
-  desc: { type: String, required: true, default: 'No description provided' }
+  description: { type: String, required: true, default: 'No description provided' }
 })
 
 

@@ -7,7 +7,7 @@ let house = new Schema({
   levels: { type: Number },
   price: { type: Number, required: true },
   year: { type: Number, required: true, minlength: 4 },
-  desc: { type: String, required: true, default: 'No description provided' }
+  description: { type: String, required: true, default: 'No description provided' }
 })
 
 module.exports = mongoose.model('House', house)
